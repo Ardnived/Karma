@@ -17,6 +17,27 @@ for ( $i = 0; $i < count( $data ); $i++ ) {
 	Karma_Events_Display::register( $data[$i] );
 }
 
+while ( have_posts() ) {
+	the_post();
+
+	$links = array();
+	$contacts = Karma_Events::get_contacts();
+
+	if ( ! empty( $contacts ) ) {
+		foreach ( $contacts as $index => $contact ) {
+			$links[ $contact['name'] ] = $contact['link'];
+		}
+	}
+
+	Karma_Events_Display::register( array(
+		'startdate' => Karma_Events::get_startdate(),
+		'enddate' => Karma_Events::get_enddate(),
+		'title' => get_the_title(),
+		'content' => get_the_content(),
+		'links' => $links,
+	) );
+}
+
 /*
 Karma_Events::register( array(
 	'startdate' => strtotime( "2015/08/10" ),

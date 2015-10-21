@@ -32,4 +32,3 @@
 		<?php karma_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
-

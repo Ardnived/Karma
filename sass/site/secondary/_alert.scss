@@ -1,0 +1,12 @@
+
+.alert {
+	padding: 1em;
+	border: 2px solid black;
+	@include border-radius(2px);
+
+	&.error {
+		color: darkred;
+		border-color: darkred;
+		background: lightred;
+	}
+}
